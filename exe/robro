@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+
+require 'robro/cli'
+
+begin
+  Robro::CLI.start ARGV
+#rescue Robro::Error => e
+#  $stderr.puts e.message
+#  exit 1
+end
