@@ -1,14 +1,18 @@
 require "robro/browser"
 require "robro/version"
 
-require 'logger'
+require 'tty/logger'
 require 'byebug'
 
 module Robro
   class Error < StandardError; end
 
   def self.logger
-    @@logger ||= Logger.new $stdout
+    @@logger ||= TTY::Logger.new do |config|
+      config.handlers = [
+        [:console, { output: $stderr, level: :debug }],
+      ]
+    end
   end
 
   def self.browser=(browser)
