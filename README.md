@@ -1,28 +1,24 @@
 # Robro
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/robro`. To experiment with that code, run `bin/console` for an interactive prompt.
+**Robro**, _Robotized brower_, a tool to ease some tasks automation that needs a _real_ browser.
 
-TODO: Delete this and the text above, and describe your gem
+Technically, `robro` is a CLI that starts a browser and provides some helpers to drive it.
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'robro'
-```
-
-And then execute:
-
-    $ bundle install
-
-Or install it yourself as:
-
-    $ gem install robro
+**Robro** is designed to run _user scripts_, specialized for the wanted automation. Out of the box, `robro` only provides a `browse` command to starts a browser, visit an URL and drop a ruby shell.
 
 ## Usage
 
-TODO: Write usage instructions here
+Built-in command: `browse` will open the provided URL than simply drop a ruby shell (_byebug_).
+
+```
+robro browse https://example.com
+```
+
+Its useful to design your own _user script_, see below.
+
+## User scripts
+
+_User scripts_ are ruby files that provide new commands, designed to use the robotized browser.
 
 ## Development
 
@@ -32,5 +28,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/robro.
+Bug reports and pull requests are welcome on GitHub at https://github.com/opus-codium/robro.
 
