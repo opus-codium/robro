@@ -30,6 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "selenium-webdriver"
   spec.add_dependency "thor"
   spec.add_dependency "tty-logger"
+  spec.add_dependency "webdrivers"
   spec.add_development_dependency "byebug"
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
