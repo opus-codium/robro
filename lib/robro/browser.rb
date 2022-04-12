@@ -78,6 +78,25 @@ module Robro
       visit 'file:///dev/null'
     end
 
+    def close_other_tabs
+      current_tab = page.driver.browser.window_handle
+      tabs = page.driver.browser.window_handles - [current_tab]
+      tabs.each do |tab|
+        page.driver.browser.switch_to.window(tab)
+        page.driver.browser.close
+      end
+      page.driver.browser.switch_to.window current_tab
+    end
+
+    def keep_only_tabs_with(url:)
+      tabs = page.driver.browser.window_handles
+
+      tabs.each do |tab|
+        page.driver.browser.switch_to.window(tab)
+        page.driver.browser.close unless page.current_url.start_with?(url_start_with)
+      end
+    end
+
     private
 
     def driver
