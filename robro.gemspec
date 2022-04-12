@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Robotized Browser}
   spec.description   = %q{Automate tasks that require a _real_ browser}
-  spec.homepage      = "https://github.com/neomilium/robro"
+  spec.homepage      = "https://github.com/opus-codium/robro"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.5.0")
 
   spec.metadata["homepage_uri"] = spec.homepage
