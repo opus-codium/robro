@@ -3,7 +3,6 @@ require "robro/version"
 
 require 'tty/logger'
 require 'byebug'
-require 'webdrivers'
 
 module Robro
   class Error < StandardError; end

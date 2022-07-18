@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Robotized Browser}
   spec.description   = %q{Automate tasks that require a _real_ browser}
-  spec.homepage      = "https://github.com/opus-codium/robro"
+  spec.homepage      = "https://github.com/neomilium/robro"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.5.0")
 
   spec.metadata["homepage_uri"] = spec.homepage
@@ -29,8 +29,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "capybara-screenshot"
   spec.add_dependency "selenium-webdriver"
   spec.add_dependency "thor"
+  spec.add_dependency "tty-cursor"
   spec.add_dependency "tty-logger"
-  spec.add_dependency "webdrivers"
   spec.add_development_dependency "byebug"
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
