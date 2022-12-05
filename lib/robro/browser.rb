@@ -2,11 +2,14 @@ require 'capybara'
 require 'capybara/dsl'
 require 'capybara-screenshot'
 
+require_relative 'browser/helpers'
+
 module Robro
   class Browser
     attr_reader :application
 
     include Capybara::DSL
+    include Robro::Browser::Helpers
 
     def initialize(application)
       @application = application.to_sym
