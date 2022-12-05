@@ -51,7 +51,7 @@ module Robro
 
     UserScripts.all_commands.each do |command|
       desc "#{command} URL", command.to_s
-      method_option :browser, :type => :string, :description => 'Supported values: firefox or chromium', :default => 'chrome'
+      method_option :browser, :type => :string, :description => 'Supported values: firefox or chromium', :default => 'firefox'
       define_method command do |*args|
         url = args.shift
         raise Thor::Error, 'URL argument is missing' if url.nil?
