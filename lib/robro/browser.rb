@@ -62,6 +62,18 @@ module Robro
         driver
       end
 
+      # XXX: Firefox with FR language
+      Capybara.register_driver :firefox do |app|
+        options = ::Selenium::WebDriver::Firefox::Options.new
+	options.add_option('prefs', 'intl.accept_languages' => 'fr-FR')
+
+        driver = Capybara::Selenium::Driver.new(
+          app,
+          browser: :firefox,
+          options: options
+        )
+      end
+
       Capybara.current_driver = driver
 
       Capybara::Screenshot.register_driver(Capybara.current_driver) do |driver, path|
