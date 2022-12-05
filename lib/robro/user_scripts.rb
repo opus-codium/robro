@@ -28,7 +28,7 @@ module Robro
       Robro.logger.info "Opening URL: #{uri}"
       Robro.browser.visit uri
 
-      Robro.logger.info "User script: '#{us}' will process commnand '#{command}'"
+      Robro.logger.info "User script: '#{us.class}' will process commnand '#{command}'"
       us.send(command, uri)
     end
 
