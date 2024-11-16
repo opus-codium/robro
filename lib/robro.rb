@@ -2,7 +2,7 @@ require "robro/browser"
 require "robro/version"
 
 require 'tty/logger'
-require 'byebug'
+require 'debug'
 
 module Robro
   class Error < StandardError; end

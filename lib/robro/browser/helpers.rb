@@ -23,11 +23,11 @@ module Robro
               remove_elements css: "##{overlay_element_id}"
             else
               Robro.logger.error "Unable to find element ID that obscures target (#{element}) in: '#{m_id[:element]}'"
-              byebug
+              debugger
             end
           else
             Robro.logger.error "Unable to find element that obscures target (#{element}) in: '#{e.message}'"
-            byebug
+            debugger
           end
         end
       end
