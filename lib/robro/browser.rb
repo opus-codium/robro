@@ -11,20 +11,19 @@ module Robro
     include Capybara::DSL
     include Robro::Browser::Helpers
 
-    def initialize(application)
+    def initialize(application, headless: false)
       @application = application.to_sym
-      @headless = false # FIXME ENV['GUI'].nil?
+      @headless = headless
 
       Capybara.configure do |config|
         config.run_server = false
         config.default_max_wait_time = 5
       end
 
-      # FIXME Register chrome_jack_headless
       require 'selenium-webdriver'
       Capybara.register_driver :chrome_jack do |app|
         options = ::Selenium::WebDriver::Chrome::Options.new
-        options.add_argument('--headless')
+        options.add_argument('--headless') if headless
         options.add_argument('--start-maximized')
         options.add_argument('--disable-blink-features')
         options.add_argument('--disable-blink-features=AutomationControlled')
@@ -108,14 +107,12 @@ module Robro
 
       driver_name = case @application
       when :firefox
-        'selenium'
+        @headless ? 'selenium_headless' : 'selenium'
       when :chrome
         'chrome_jack'
       else
         raise "Unsupported browser: '#{application}'"
       end
-
-      driver_name += '_headless' if @headless
 
       driver_name.to_sym
     end
