@@ -12,6 +12,7 @@ module Robro
       config.handlers = [
         [:console, { output: $stderr, level: :debug }],
       ]
+      config.metadata = %i[date time]
     end
   end
 
