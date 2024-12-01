@@ -23,14 +23,15 @@ module Robro
       # FIXME Register chrome_jack_headless
       require 'selenium-webdriver'
       Capybara.register_driver :chrome_jack do |app|
-        options = ::Selenium::WebDriver::Chrome::Options.new.tap do |opts|
-          opts.args << '--start-maximized'
-          opts.args << '--disable-blink-features'
-          opts.args << '--disable-blink-features=AutomationControlled'
-          opts.args << '--excludeSwitches=enable-automation'
-          opts.args << '--disable-gpu'
-        end
-        driver = Capybara::Selenium::Driver.new(app, browser: :chrome, capabilities: options)
+        options = ::Selenium::WebDriver::Chrome::Options.new
+        options.add_argument('--headless')
+        options.add_argument('--start-maximized')
+        options.add_argument('--disable-blink-features')
+        options.add_argument('--disable-blink-features=AutomationControlled')
+        options.add_argument('--excludeSwitches=enable-automation')
+        options.add_argument('--disable-gpu')
+
+        driver = Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
         bridge = driver.browser.send(:bridge)
 
         path = '/session/:session_id/chromium/send_command'
